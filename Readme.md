@@ -1,4 +1,4 @@
-# React Native Expo project preconfigured with NativeWind, React Native Paper and Prettier
+# React Native Expo project preconfigured with Material You, React Native Paper and Prettier
 
 This is a React Native Expo template preconfigured with [NativeWind](https://www.nativewind.dev/), [React Native Paper](https://callstack.github.io/react-native-paper/), and [Prettier](https://prettier.io/). NativeWind NativeWind uses Tailwind CSS as scripting language to create a universal style system for React Native, while React Native Paper is a Cross-platform Material Design for React Native. Prettier is a code formatter that helps ensure consistent code formatting across the project.
 
