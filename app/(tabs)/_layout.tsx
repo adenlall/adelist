@@ -18,50 +18,65 @@ export default function Layout() {
         }
       >
       <BottomBarPaper.Screen
-        name='index'
+        name='Feed'
         options={{
-          tabBarLabel: 'Home',
+          tabBarLabel: 'Feed',
           tabBarIcon(props) {
             return (
               <MaterialCommunityIcons
                 color={props.color}
                 size={24}
-                name={props.focused ? 'home' : 'home-outline'}
+                name={props.focused ? 'rss-box' : 'rss'}
               />
             )
           },
         }}
       />
       <BottomBarPaper.Screen
-        name='latest'
+        name='MangaHome'
         options={{
-          tabBarLabel: 'Latest',
+          tabBarLabel: 'Manga',
           tabBarIcon(props) {
             return (
               <MaterialCommunityIcons
                 color={props.color}
                 size={24}
-                name={'history'}
+                name={props.focused ? 'book' : 'book-outline'}
               />
             )
           },
         }}
       />
-        <BottomBarPaper.Screen
-          name='two'
-          options={{
-            tabBarLabel: 'Manga',
-            tabBarIcon(props) {
-              return (
-                <MaterialCommunityIcons
-                  color={props.color}
-                  size={24}
-                  name={props.focused ? 'book' : 'book-outline'}
-                />
-              )
-            },
-          }}
-        />
+      <BottomBarPaper.Screen
+        name='AnimeHome'
+        options={{
+          tabBarLabel: 'Anime',
+          tabBarIcon(props) {
+            return (
+              <MaterialCommunityIcons
+                color={props.color}
+                size={24}
+                name={props.focused ? 'book' : 'book-outline'}
+              />
+            )
+          },
+        }}
+      />
+      <BottomBarPaper.Screen
+        name='Discovery'
+        options={{
+          tabBarLabel: 'Discovery',
+          tabBarIcon(props) {
+            return (
+              <MaterialCommunityIcons
+                color={props.color}
+                size={24}
+                name={props.focused ? 'book' : 'book-outline'}
+              />
+            )
+          },
+        }}
+      />
       </BottomBarPaper>
     </>
   )
