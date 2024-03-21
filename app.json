@@ -1,0 +1,36 @@
+{
+  "expo": {
+    "name": "AdeList",
+    "slug": "adelist-md3",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./app/assets/icons/icon.png",
+    "scheme": "adelist-md3",
+    "splash": {
+      "image": "./app/assets/icons/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./app/assets/icons/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.peekay.Mibu"
+    },
+    "web": {
+      "favicon": "./app/assets/icons/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store"
+    ]
+  }
+}
