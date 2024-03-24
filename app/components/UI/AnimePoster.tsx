@@ -2,6 +2,8 @@ import { ImageBackground, View } from "react-native"
 import { TouchableRipple, useTheme } from "react-native-paper"
 
 export default function AnimePoser({source}:any) {
+  console.log('source Image : '+ source);
+  
   return (
     <>
       <View style={{ padding: 10 }}>

@@ -126,6 +126,7 @@ export const GetAnimeById = `
 query ($id: Int) { # Define which variables will be used in the query (id)
   Media (id: $id, type: ANIME) {
     id
+    genres
     title {
       romaji
       english
@@ -148,6 +149,30 @@ query ($id: Int) { # Define which variables will be used in the query (id)
     coverImage {
         extraLarge
     }
+
+    recommendations {
+      edges {
+        node {
+          id
+          mediaRecommendation {
+            id
+            title {
+              romaji
+              english
+              native
+              userPreferred
+            }
+            coverImage {
+              extraLarge
+              large
+              medium
+              color
+            }
+          }
+        }
+      }
+    }
+
   }
 }
 `;
@@ -167,6 +192,152 @@ query ($id: Int) { # Define which variables will be used in the query (id)
         url
         site
     }
+
+
   }
 }
 `;
+
+// Get anime data by its anilist Id
+export const GetMangaById = `
+query ($id: Int) { # Define which variables will be used in the query (id)
+  Media (id: $id, type: MANGA) {
+    id
+    genres
+    title {
+      romaji
+      english
+      native
+    }
+    type
+    status
+    chapters
+    startDate {
+        year
+        month
+        day
+    }
+    averageScore
+    popularity
+    favourites
+    isAdult
+    description
+    synonyms
+    coverImage {
+        extraLarge
+    }
+
+    recommendations {
+      edges {
+        node {
+          id
+          mediaRecommendation {
+            id
+            title {
+              romaji
+              english
+              native
+              userPreferred
+            }
+            coverImage {
+              extraLarge
+              large
+              medium
+              color
+            }
+          }
+        }
+      }
+    }
+
+  }
+}
+`;
+export const getRecomendationByID = `
+quety($id: Int){
+  Recommendation(id: $id) {
+    id
+    media {
+      title {
+        romaji
+        english
+        native
+        userPreferred
+      }
+      coverImage {
+        extraLarge
+      }
+    }
+    rating
+  }
+}
+`;
+
+export const getAnimeChacters = `
+query ($id: Int) {
+  Media(id: $id, type: ANIME) {
+    id
+    characters {
+      
+      edges {
+        id
+        node {
+          id
+          name {
+            full
+            native
+            userPreferred
+          }
+          image {
+            large
+            medium
+          }
+          gender
+          dateOfBirth {
+            year
+            month
+            day
+          }
+          
+        }
+        
+      }
+      
+    }
+  }
+}
+`
+export const getMangaChacters = `
+query ($id: Int) {
+  Media(id: $id, type: MANGA) {
+    id
+    characters {
+      
+      edges {
+        id
+        node {
+          id
+          name {
+            full
+            native
+            userPreferred
+          }
+          image {
+            large
+            medium
+          }
+          gender
+          dateOfBirth {
+            year
+            month
+            day
+          }
+          
+        }
+        
+      }
+      
+    }
+  }
+}
+`

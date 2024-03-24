@@ -9,7 +9,7 @@ const AppBar = (props: { back?: any | null; title?: string; search?: any; more?:
   <Appbar.Header style={{zIndex:2}}>
     {props.back ? <Appbar.BackAction disabled={!props.back} onPress={props.back} /> : null}
     {props.title? <Appbar.Content title={props.title} /> : null}
-    <Link href={'search'}><IconButton icon={'magnify'} /></Link>
+    <Link href={'/search'}><IconButton icon={'magnify'} /></Link>
   </Appbar.Header>
 )
 

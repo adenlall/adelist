@@ -2,10 +2,11 @@ import {Button, Text, View} from "react-native";
 import * as React from "react";
 import {useState} from "react";
 import axios from "axios";
+import { Fetch } from "../../helpers/Fetch";
 
 
 // Generic Handler for Grabbing Anilist Category Data for Discovery Page Grids
-export default function GetAnime(GraphQLQuery:any, Variables:any) {
+export default function GetAnime(GraphQLQuery:any, Variables:any, key:any, remeber=0) {
     const [apiData, setApiData] = useState(null);
 
     const handleApiCall = async () => {
@@ -17,21 +18,13 @@ export default function GetAnime(GraphQLQuery:any, Variables:any) {
                     'Accept': 'application/json',
                 },
             };
-
-            const response = await axios.post(url, { query: GraphQLQuery, variables: Variables }, options);
-            const data = handleResponse(response);
-
+            const data = await Fetch.post(url, { query: GraphQLQuery, variables: Variables }, options, key??Variables?.id, remeber);
             setApiData(data);
-            
             return data;
         } catch (error) {
             console.error(error);
             throw error;
         }
-    };
-
-    const handleResponse = (response) => {
-        return response.data;
     };
 
     return {

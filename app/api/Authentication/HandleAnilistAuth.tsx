@@ -13,6 +13,7 @@ import axios from "axios";
 import * as SecureStore from "expo-secure-store";
 import {GetCurrentUser} from "../AnilistHelpers/UserHelpers";
 import {SaveCurrentUser} from "../AnilistHelpers/UserHelpers";
+import { Storage } from '../../helpers/Storage';
 
 WebBrowser.maybeCompleteAuthSession();
 
@@ -35,17 +36,16 @@ export default function HandleAnilistAuthButton() {
 
                     var AuthorisationCode = result.url.split('code=')[1];
 
-                    localStorage.setItem('anilistUserToken', AuthorisationCode);
+                    Storage.setData('anilistUserCode', AuthorisationCode);
 
-                    GetSaveAccessToken(AuthorisationCode, redirectUri, client_id, client_secret)
+                    GetSaveAccessToken(AuthorisationCode, redirectUri, client_id, client_secret);
 
-                    if (Platform.OS === 'android') {
-
-                    }
+                    if ( Platform.OS === 'android' ) {  }
 
                 } else {
                     console.error('Error opening browser or user canceled the authentication. IOS Handler:', result);
                 }
+
         } catch (error) {
             console.error('Error:', error);
         }
@@ -95,16 +95,11 @@ export function GetSaveAccessToken(AuthorisationCode: string, redirectUri: strin
                 console.log('Expires in:', response.data.expires_in);
                 console.log("Something", response)
 
-                SecureStore.setItemAsync('access_token', response.data.access_token);
-                SecureStore.setItemAsync('refresh_token', response.data.refresh_token);
-                SecureStore.setItemAsync('expires_in', response.data.expires_in.toString());
-                SecureStore.setItemAsync('isUserLoggedIn', 'true');
+                Storage.setData('access_token', response.data.access_token);
+                Storage.setData('refresh_token', response.data.refresh_token);
+                Storage.setData('expires_in', response.data.expires_in.toString());
+                Storage.setData('isUserLoggedIn', 'true');
 
-                localStorage.setItem('access_token', response.data.access_token);
-                localStorage.setItem('refresh_token', response.data.refresh_token);
-                localStorage.setItem('expires_in', response.data.expires_in.toString());
-                localStorage.setItem('isUserLoggedIn', 'true');
-                
                 GetCurrentUser().then(user => SaveCurrentUser(user))
             
             })

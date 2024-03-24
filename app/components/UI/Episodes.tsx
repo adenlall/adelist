@@ -12,7 +12,7 @@ export const Episodes = ({ id }: any) => {
 
     const { handleApiCall, apiData } = GetAnime(GraphQLQuery, {
         id: id
-    }) as any;
+    }, "anime-"+id+"-eps", 1) as any;
     const [isLoading, setIsLoading] = useState(true);
     const hasFetchedData = useRef(false);
 

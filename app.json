@@ -31,6 +31,15 @@
     "plugins": [
       "expo-router",
       "expo-secure-store"
-    ]
+    ],
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "ea0653d1-c453-46b2-bd49-d7bae8b4d77e"
+      }
+    },
+    "owner": "adenlall"
   }
 }

@@ -4,8 +4,10 @@ import { StatusBar } from "expo-status-bar";
 import HandleAnilistAuthButton from "./api/Authentication/HandleAnilistAuth";
 import { Link } from "expo-router";
 import { PaperProvider } from "react-native-paper";
+import { Storage } from "./helpers/Storage";
 export default function Index() {
 
+    Storage.reset()
 
     return (
 

@@ -3,13 +3,12 @@ import { useLocalSearchParams, useNavigation, useRouter } from 'expo-router'
 import { useEffect, useRef, useState } from 'react'
 import { ScrollView, StyleSheet, View } from 'react-native'
 import AppBar from '../components/Interface/AppBar'
-import { GetAnimeById } from '../api/queries/DiscoveryQueries'
+import { GetMangaById } from '../api/queries/DiscoveryQueries'
 import GetAnime from '../api/Meta/GetAnime'
 import AnimePoser from '../components/UI/AnimePoster'
 import { AnimePoserMeta } from '../components/UI/AnimePosterMeta'
 import { ExtraInfo } from '../components/UI/ExtraInfo'
 import { Synopsis } from '../components/UI/Synopsis'
-import { Episodes } from '../components/UI/Episodes'
 import ScrollAnimes from '../components/Interface/ScrollAnimes'
 import { Charcters } from '../components/Interface/Characters'
 export default function Page() {
@@ -17,13 +16,12 @@ export default function Page() {
   navigation.setOptions({ headerShown: false })
   const { id }: any = useLocalSearchParams()
 
-  const GraphQLQuery = GetAnimeById;
+  const GraphQLQuery = GetMangaById;
 
   const { handleApiCall, apiData } = GetAnime(GraphQLQuery, {
     id: id
-  }, "anime-"+id+"-gen", 1) as any;
-
-  const [ isLoading, setIsLoading ] = useState(true);
+  }, "manga-"+id+"-gen") as any;
+  const [isLoading, setIsLoading] = useState(true);
   const hasFetchedData = useRef(false);
 
   useEffect(() => {
@@ -55,14 +53,14 @@ export default function Page() {
       <AppBar
         more={null}
         search={null}
-        title='Anime'
+        title='Manga'
         back={() => {
           navigation.goBack()
         }}
       />
 
         <View style={styles.poster}>
-          <AnimePoser source={apiData?.data?.Media?.coverImage?.extraLarge??apiData?.data?.Media?.coverImage?.large??apiData?.data?.Media?.coverImage?.meduim??apiData?.data?.Media?.coverImage?.color} />
+          <AnimePoser source={apiData?.data?.Media?.coverImage?.extraLarge} />
           <AnimePoserMeta 
             titles={apiData?.data?.Media?.title}
             synonyms={apiData?.data?.Media?.synonyms}
@@ -70,17 +68,16 @@ export default function Page() {
           />
         </View>
         <ExtraInfo attr={apiData?.data?.Media} genres={apiData?.data?.Media?.genres} />
-        <Charcters id={id} />
+        <Charcters type={'manga'} id={id} />
         <Synopsis data={apiData?.data?.Media?.description} />
-          {
+        {
             apiData?.data?.Media?.recommendations?.edges?.length?(
               <View>
-                <Text variant="headlineSmall" style={{textAlign: 'left', marginVertical: 10, marginLeft: 5}}>This Anime Recomendation</Text>
-                <ScrollAnimes data={apiData?.data?.Media?.recommendations?.edges} type={'anime'} />
+                <Text variant="headlineSmall" style={{textAlign: 'left', marginVertical: 10, marginLeft: 5}}>This Manga Recomendation</Text>
+                <ScrollAnimes data={apiData?.data?.Media?.recommendations?.edges} type={'manga'} />
               </View>      
             ):''
           }
-        <Episodes id={id} />
     </ScrollView>
   )
 }

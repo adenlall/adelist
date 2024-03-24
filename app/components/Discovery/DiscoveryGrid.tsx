@@ -5,9 +5,8 @@ import DiscoveryItem from "./DiscoveryItem";
 import { ActivityIndicator } from "react-native-paper";
 
 
-
-export default function DiscoveryGrid({ GraphQLQuery }) {
-    const { handleApiCall, apiData } = AnilistDiscoveryGridCall(GraphQLQuery);
+export default function DiscoveryGrid({ GraphQLQuery, queryName }:any) {
+    const { handleApiCall, apiData } = AnilistDiscoveryGridCall(GraphQLQuery, queryName, 3);
     const [isLoading, setIsLoading] = useState(true);
     const hasFetchedData = useRef(false);
 
@@ -17,8 +16,7 @@ export default function DiscoveryGrid({ GraphQLQuery }) {
                 if (!hasFetchedData.current) {
                     await handleApiCall();
                     hasFetchedData.current = true;
-                    setIsLoading(false); // Set loading to false after data is fetched
-                    console.log("API Data:", apiData);
+                    setIsLoading(false);
                 }
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -35,11 +33,12 @@ export default function DiscoveryGrid({ GraphQLQuery }) {
             ) : (
                 <ScrollView horizontal={true} nestedScrollEnabled={true} showsHorizontalScrollIndicator={false}>
                     {apiData && apiData.data && apiData.data.Page && apiData.data.Page.media &&
-                        apiData.data.Page.media.map((item, index) => (
+                        apiData.data.Page.media.map((item:any, index:number) => (
                             <DiscoveryItem
+                                type={GraphQLQuery.match("ANIME")?'anime':'manga'}
                                 Id={item.id}
                                 key={index}
-                                SourceImage={item.coverImage.extraLarge}
+                                SourceImage={item.coverImage.extraLarge??item.coverImage.large??item.coverImage.meduim}
                                 Title={item.title && item.title.english ? item.title.english : (item.title.romaji??'No title Found') }
                             />
                         ))}

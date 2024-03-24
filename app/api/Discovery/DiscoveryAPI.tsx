@@ -2,11 +2,14 @@ import {Button, Text, View} from "react-native";
 import * as React from "react";
 import {useState} from "react";
 import axios from "axios";
+import { Fetch } from "../../helpers/Fetch";
+import { Storage } from "../../helpers/Storage";
 
 
 // Generic Handler for Grabbing Anilist Category Data for Discovery Page Grids
-export default function AnilistDiscoveryGridCall(GraphQLQuery) {
-    const [apiData, setApiData] = useState(null);
+export default function AnilistDiscoveryGridCall(GraphQLQuery:any, queryName:any, remember=0) {
+    
+    const [apiData, setApiData] = useState(null) as any;
 
     const handleApiCall = async () => {
         try {
@@ -17,20 +20,13 @@ export default function AnilistDiscoveryGridCall(GraphQLQuery) {
                     'Accept': 'application/json',
                 },
             };
-
-            const response = await axios.post(url, { query: GraphQLQuery }, options);
-            const data = handleResponse(response);
-
+            const data = await Fetch.post(url, { query: GraphQLQuery }, options, queryName, remember);
             setApiData(data);
             return data;
         } catch (error) {
             console.error(error);
             throw error;
         }
-    };
-
-    const handleResponse = (response) => {
-        return response.data;
     };
 
     return {

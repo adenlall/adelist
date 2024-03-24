@@ -1,5 +1,6 @@
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons'
 import { BottomBarPaper } from '../../layout/BottomBarPaper'
+import { PaperProvider } from 'react-native-paper'
 
 export const unstable_settings = {
   initialRouteName: 'index',
@@ -7,7 +8,7 @@ export const unstable_settings = {
 
 export default function Layout() {
   return (
-    <>
+    <PaperProvider>
       <BottomBarPaper
         safeAreaInsets={{ bottom: 0 }}
         screenOptions={
@@ -17,9 +18,9 @@ export default function Layout() {
         }
       >
       <BottomBarPaper.Screen
-        name='Feed'
+        name='Latest'
         options={{
-          tabBarLabel: 'Feed',
+          tabBarLabel: 'Latest',
           tabBarIcon(props) {
             return (
               <MaterialCommunityIcons
@@ -32,9 +33,9 @@ export default function Layout() {
         }}
       />
       <BottomBarPaper.Screen
-        name='AnimeHome'
+        name='Movies'
         options={{
-          tabBarLabel: 'Anime',
+          tabBarLabel: 'Movies',
           tabBarIcon(props) {
             return (
               <MaterialCommunityIcons
@@ -47,7 +48,7 @@ export default function Layout() {
         }}
       />
       <BottomBarPaper.Screen
-        name='MangaHome'
+        name='Manga'
         options={{
           tabBarLabel: 'Manga',
           tabBarIcon(props) {
@@ -77,6 +78,6 @@ export default function Layout() {
         }}
       />
       </BottomBarPaper>
-    </>
+    </PaperProvider>
   )
 }

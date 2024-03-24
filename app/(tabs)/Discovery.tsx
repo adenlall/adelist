@@ -36,21 +36,20 @@ export default function Discovery() {
         <SafeAreaView style={{marginTop:24, flex: 1, backgroundColor: useTheme().colors.background}}>
             <ScrollView  refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}>
                 <Text variant="headlineSmall" style={{textAlign: 'left', marginVertical: 10, marginLeft: 5}}>Now Trending Anime</Text>
-                <DiscoveryGrid GraphQLQuery={trendingAnimeQuery}/>
+                <DiscoveryGrid queryName={'trendingAnimeQuery'} GraphQLQuery={trendingAnimeQuery}/>
                 <Text variant="headlineSmall" style={{textAlign: 'left', marginVertical: 10, marginLeft: 5}}>Popular This Season - {CurrentSeason}</Text>
-                <DiscoveryGrid GraphQLQuery={PopularAnimeThisSeasonQuery}/>
+                <DiscoveryGrid queryName={'PopularAnimeThisSeasonQuery'} GraphQLQuery={PopularAnimeThisSeasonQuery}/>
                 <Text variant="headlineSmall" style={{textAlign: 'left', marginVertical: 10, marginLeft: 5}}>Upcoming Next Season - {UpcomingSeason}</Text>
-                <DiscoveryGrid GraphQLQuery={UpcomingAnimeNextSeasonQuery}/>
+                <DiscoveryGrid queryName={'UpcomingAnimeNextSeasonQuery'} GraphQLQuery={UpcomingAnimeNextSeasonQuery}/>
                 <Text variant="headlineSmall" style={{textAlign: 'left', marginVertical: 10, marginLeft: 5}}>All Time Popular Anime</Text>
-                <DiscoveryGrid GraphQLQuery={AllTimePopularAnimeQuery}/>
+                <DiscoveryGrid queryName={'AllTimePopularAnimeQuery'} GraphQLQuery={AllTimePopularAnimeQuery}/>
                 {/*End Of Anime Lists - Manga Lists Below*/}
                 <Text variant="headlineSmall" style={{textAlign: 'left', marginVertical: 10, marginLeft: 5}}>Now Trending Manga</Text>
-                <DiscoveryGrid GraphQLQuery={trendingMangaQuery}/>
+                <DiscoveryGrid queryName={'trendingMangaQuery'} GraphQLQuery={trendingMangaQuery}/>
                 <Text variant="headlineSmall" style={{textAlign: 'left', marginVertical: 10, marginLeft: 5}}>All Time Popular Manga</Text>
-                <DiscoveryGrid GraphQLQuery={AllTimePopularMangaQuery}/>
-
+                <DiscoveryGrid queryName={'AllTimePopularMangaQuery'} GraphQLQuery={AllTimePopularMangaQuery}/>
                 <Text variant="headlineSmall" style={{textAlign: 'left', marginVertical: 10, marginLeft: 5}}>Popular Manhwa</Text>
-                <DiscoveryGrid GraphQLQuery={PopularManhwaQuery}/>
+                <DiscoveryGrid queryName={'PopularManhwaQuery'} GraphQLQuery={PopularManhwaQuery}/>
             </ScrollView>
         </SafeAreaView>
     )
