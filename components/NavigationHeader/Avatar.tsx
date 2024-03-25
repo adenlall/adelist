@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import {View, Image, StyleSheet, ImageSourcePropType, TouchableOpacity} from 'react-native';
-import  userAvatar  from '../../assets/images/userAvatar.png';
 import {Redirect, router} from "expo-router";
 import * as SecureStore from "expo-secure-store";
 

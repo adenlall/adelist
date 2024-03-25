@@ -45,7 +45,7 @@ export const EpisodeCard = ({ thumbnail, number, url, type }: any) => (
 
 const styles = StyleSheet.create({
   card: {
-    width: 160,
+    width: 130,
     height: 90,
   },
 })

@@ -2,7 +2,6 @@ import * as SecureStore from "expo-secure-store";
 import axios from "axios";
 import {router} from "expo-router";
 
-import {useAvatarUpdate} from "../../components/NavigationHeader/Avatar";
 export function GetCurrentUser() {
 
     return new Promise((resolve, reject) => {
@@ -48,7 +47,7 @@ export function GetCurrentUser() {
     });
 }
 
-export function SaveCurrentUser(user) {
+export function SaveCurrentUser(user:any) {
     SecureStore.setItemAsync('userId', String(user.id)); // Convert id to string if necessary
     SecureStore.setItemAsync('userName', user.name);
     SecureStore.setItemAsync('userAvatarLink', user.avatar.large); // Store the avatar link directly

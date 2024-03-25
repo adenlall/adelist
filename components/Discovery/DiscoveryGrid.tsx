@@ -1,8 +1,8 @@
 import React, {useEffect, useRef, useState} from "react";
 import {ScrollView, View} from "react-native";
-import AnilistDiscoveryGridCall from "../../api/Discovery/DiscoveryAPI";
 import DiscoveryItem from "./DiscoveryItem";
 import { ActivityIndicator } from "react-native-paper";
+import AnilistDiscoveryGridCall from "../../app/api/Discovery/DiscoveryAPI";
 
 
 export default function DiscoveryGrid({ GraphQLQuery, queryName }:any) {

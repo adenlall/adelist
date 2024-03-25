@@ -2,7 +2,7 @@ import {ScrollView, View, RefreshControl, SafeAreaView} from "react-native";
 import * as React from "react";
 
 
-import DiscoveryGrid from "../components/Discovery/DiscoveryGrid";
+import DiscoveryGrid from "../../components/Discovery/DiscoveryGrid";
 import {
     AllTimePopularAnimeQuery,
     AllTimePopularMangaQuery,

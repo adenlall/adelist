@@ -1,8 +1,8 @@
 import { ActivityIndicator, Avatar, Button, Card, Text } from 'react-native-paper'
 import { Image, ScrollView, StyleSheet, View } from 'react-native'
 import { useEffect, useRef, useState } from 'react'
-import { getAnimeChacters, getMangaChacters } from '../../api/queries/DiscoveryQueries'
-import GetAnime from '../../api/Meta/GetAnime'
+import { getAnimeChacters, getMangaChacters } from '../../app/api/queries/DiscoveryQueries';
+import GetAnime from '../../app/api/Meta/GetAnime';
 
 export const Charcters = ({ id, type='anime' }: any) => {
 

@@ -8,7 +8,7 @@ import {StatusBar} from "expo-status-bar";
 import HandleAnilistAuth from "../../api/Authentication/HandleAnilistAuth";
 import HandleAnilistAuthButton from "../../api/Authentication/HandleAnilistAuth";
 import {Logout} from "../../api/AnilistHelpers/UserHelpers";
-import LogoutButton from "../../components/Profile/Logout";
+import LogoutButton from "../../../components/Profile/Logout";
 
 
 

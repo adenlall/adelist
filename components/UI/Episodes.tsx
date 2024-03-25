@@ -2,9 +2,9 @@ import { ActivityIndicator, Button, Card, Text } from 'react-native-paper'
 import { StyleSheet, View } from 'react-native'
 import { useEffect, useRef, useState } from 'react'
 import { EpisodeCard } from './EpisodeCard'
-import { GetAnimeEpisodesById } from '../../api/queries/DiscoveryQueries'
-import GetAnime from '../../api/Meta/GetAnime'
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons'
+import { GetAnimeEpisodesById } from '../../app/api/queries/DiscoveryQueries'
+import GetAnime from '../../app/api/Meta/GetAnime'
 
 export const Episodes = ({ id }: any) => {
 

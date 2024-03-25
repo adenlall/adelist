@@ -7,7 +7,7 @@ import { PaperProvider } from "react-native-paper";
 import { Storage } from "./helpers/Storage";
 export default function Index() {
 
-    Storage.reset()
+    // Storage.reset()
 
     return (
 

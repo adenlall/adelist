@@ -1,21 +1,8 @@
 import {ScrollView, View, RefreshControl, SafeAreaView} from "react-native";
 import * as React from "react";
 
-
-import DiscoveryGrid from "../components/Discovery/DiscoveryGrid";
-import {
-    AllTimePopularAnimeQuery,
-    AllTimePopularMangaQuery,
-    PopularAnimeThisSeasonQuery,
-    PopularManhwaQuery,
-    trendingAnimeQuery,
-    trendingMangaQuery,
-    UpcomingAnimeNextSeasonQuery
-} from "../api/queries/DiscoveryQueries";
-
 import {useState} from "react";
 import { ActivityIndicator, Text, useTheme } from "react-native-paper";
-import { SafeAreaInsetsContext } from "react-native-safe-area-context";
 import GetUser from "../api/Meta/GetUser";
 import { GetGeneralUserData } from "../api/queries/CurrentUserQueries";
 
@@ -55,7 +42,7 @@ export default function Feed() {
 
     return (
         <SafeAreaView style={{marginTop:24, flex: 1, backgroundColor: useTheme().colors.background}}>
-            <ScrollView  refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}>
+            <ScrollView>
                 <Text>Hello world</Text>
             </ScrollView>
         </SafeAreaView>

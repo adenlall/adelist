@@ -341,3 +341,32 @@ query ($id: Int) {
   }
 }
 `
+export const getCharacterById = `
+query ($id: Int) {
+  Character(id: $id) {
+    id
+    name {
+      first
+      middle
+      last
+      full
+      native
+      userPreferred
+    }
+    image {
+      large
+      medium
+    }
+    description
+    gender
+    dateOfBirth {
+      year
+      month
+      day
+    }
+    age
+    bloodType
+    favourites
+  }
+}
+`
