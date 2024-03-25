@@ -11,7 +11,7 @@ import {
     trendingAnimeQuery,
     trendingMangaQuery,
     UpcomingAnimeNextSeasonQuery
-} from "../api/queries/DiscoveryQueries";
+} from "./../../api/queries/DiscoveryQueries";
 
 import {useState} from "react";
 import { Text, useTheme } from "react-native-paper";

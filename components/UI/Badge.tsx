@@ -1,11 +1,11 @@
 import { StyleSheet, Text } from 'react-native'
 import { TouchableRipple, useTheme } from 'react-native-paper'
 
-export default function Badge({children}:any) {
+export default function Badge({children, notAbs}:any) {
   const theme = useTheme()
   return (
     <>
-      <TouchableRipple style={{position:'absolute', right:0}} rippleColor="rgba(0, 0, 0, .32)">
+      <TouchableRipple style={!notAbs?{position:'absolute', right:0}:{}} rippleColor="rgba(0, 0, 0, .32)">
         <Text
           style={{
             borderRadius: theme.roundness,

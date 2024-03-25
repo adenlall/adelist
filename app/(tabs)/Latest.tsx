@@ -1,6 +1,6 @@
 import {Text, View} from "react-native";
 import * as React from "react";
-import { Storage } from "../helpers/Storage";
+import { Storage } from "../../helpers/Storage";
 
 export default function AnimeHome() {
     React.useEffect(()=>{

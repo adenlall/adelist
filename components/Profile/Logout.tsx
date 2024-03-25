@@ -1,6 +1,6 @@
 import {Text, View} from "react-native";
 import React from "react";
-import { Logout } from "../../app/api/AnilistHelpers/UserHelpers";
+import { Logout } from "../../api/AnilistHelpers/UserHelpers";
 export default function LogoutButton() {
 
     return (

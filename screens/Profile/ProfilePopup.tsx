@@ -1,11 +1,11 @@
-import {Button, Platform, Switch, Text, TouchableOpacity, View} from "react-native";
+import {Platform, Text, TouchableOpacity, View} from "react-native";
 import React, {useEffect, useState} from "react";
 import {MaterialCommunityIcons} from "@expo/vector-icons";
 import * as SecureStore from 'expo-secure-store';
-import {router} from "expo-router";
-import HandleAnilistAuthButton from "../../../api/Authentication/HandleAnilistAuth";
-import LogoutButton from "../../../components/Profile/Logout";
-import { ToggleLockScreen } from "../../../helpers/BiometricAuthenticationHelper";
+import {ToggleLockScreen} from "../../helpers/BiometricAuthenticationHelper";
+import {Link, router} from "expo-router";
+import HandleAnilistAuthButton from "../../api/Authentication/HandleAnilistAuth";
+import LogoutButton from "../../components/Profile/Logout";
 
 
 

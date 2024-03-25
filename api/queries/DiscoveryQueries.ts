@@ -144,7 +144,7 @@ query ($id: Int) { # Define which variables will be used in the query (id)
     popularity
     favourites
     isAdult
-    description
+    description(asHtml:false)
     synonyms
     coverImage {
         extraLarge
@@ -221,7 +221,7 @@ query ($id: Int) { # Define which variables will be used in the query (id)
     popularity
     favourites
     isAdult
-    description
+    description(asHtml:false)
     synonyms
     coverImage {
         extraLarge
@@ -245,6 +245,7 @@ query ($id: Int) { # Define which variables will be used in the query (id)
               medium
               color
             }
+
           }
         }
       }
@@ -357,7 +358,7 @@ query ($id: Int) {
       large
       medium
     }
-    description
+    description(asHtml:false)
     gender
     dateOfBirth {
       year
@@ -367,6 +368,29 @@ query ($id: Int) {
     age
     bloodType
     favourites
+    
+    media {
+      edges {
+        id
+        node {
+          id
+          title {
+            romaji
+            english
+            native
+            userPreferred
+          }
+          coverImage {
+            extraLarge
+            large
+            medium
+            color
+          }
+          type
+        }
+      }
+    }
+    
   }
 }
 `

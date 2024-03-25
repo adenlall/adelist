@@ -1,20 +1,19 @@
 import React from "react";
 import { View, Text, Button, ImageBackground } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import HandleAnilistAuthButton from "./api/Authentication/HandleAnilistAuth";
+import HandleAnilistAuthButton from "./../api/Authentication/HandleAnilistAuth";
 import { Link } from "expo-router";
-import { PaperProvider } from "react-native-paper";
-import { Storage } from "./helpers/Storage";
+import { Provider as PaperProvider } from "react-native-paper";
+
+
 export default function Index() {
 
     // Storage.reset()
 
     return (
-
-        <PaperProvider>
             <View style={{ flex: 1 }}>
                 <StatusBar style="light" />
-                <ImageBackground source={require('../app/assets/images/storm.jpg')} style={{ flex: 1 }} blurRadius={5}>
+                <ImageBackground source={require('../assets/images/storm.jpg')} style={{ flex: 1 }} blurRadius={5}>
                     {/* Add the centered box here */}
                     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: 10 }}>
                         <View style={{ width: '90%', height: '90%', backgroundColor: 'rgba(0, 0, 0, 0.4)', borderWidth: 0, borderColor: 'white', borderRadius: 20 }}>
@@ -30,7 +29,6 @@ export default function Index() {
                     </View>
                 </ImageBackground>
             </View>
-        </PaperProvider>
     );
 
 }

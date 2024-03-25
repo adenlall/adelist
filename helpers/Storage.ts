@@ -20,7 +20,6 @@ export class Storage {
     console.log("GET::DATA", key);
     try {
       const value = await AsyncStorage.getItem(key);
-      console.log(value);
       if (value !== null) {
         try{
           let data = JSON.parse(value);

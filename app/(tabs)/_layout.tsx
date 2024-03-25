@@ -1,6 +1,6 @@
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons'
 import { BottomBarPaper } from '../../layout/BottomBarPaper'
-import { PaperProvider } from 'react-native-paper'
+
 
 export const unstable_settings = {
   initialRouteName: 'index',
@@ -8,7 +8,6 @@ export const unstable_settings = {
 
 export default function Layout() {
   return (
-    <PaperProvider>
       <BottomBarPaper
         safeAreaInsets={{ bottom: 0 }}
         screenOptions={
@@ -78,6 +77,5 @@ export default function Layout() {
         }}
       />
       </BottomBarPaper>
-    </PaperProvider>
   )
 }

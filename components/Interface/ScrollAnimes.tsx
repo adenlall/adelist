@@ -11,11 +11,11 @@ export default function ScrollAnimes({data, type}:{data:Array<Object>, type:'ani
                 <ScrollView horizontal={true} nestedScrollEnabled={true} showsHorizontalScrollIndicator={false}>
                     {data.map((item:any, index:number) => (
                             <DiscoveryItem
-                                type={type}
-                                Id={item?.node?.mediaRecommendation?.id}
+                                type={item?.node?.type!=='ANIME'?'manga':type}
+                                Id={item?.node?.mediaRecommendation?.id??item?.node?.id}
                                 key={index}
-                                SourceImage={item?.node?.mediaRecommendation?.coverImage?.extraLarge??item?.node?.mediaRecommendation?.coverImage?.large??item?.node?.mediaRecommendation?.coverImage?.meduim}
-                                Title={item?.node?.mediaRecommendation?.title && item?.node?.mediaRecommendation?.title?.english ? item?.node?.mediaRecommendation?.title?.english : (item?.node?.mediaRecommendation?.title?.romaji??'No title Found') }
+                                SourceImage={item?.node?.mediaRecommendation?.coverImage?.extraLarge??item?.node?.mediaRecommendation?.coverImage?.large??item?.node?.mediaRecommendation?.coverImage?.meduim??item?.node?.coverImage?.meduim??item?.node?.coverImage?.large}
+                                Title={item?.node?.mediaRecommendation?.title?.romaji ?? item?.node?.mediaRecommendation?.title?.english ?? item?.node?.title?.romaji ?? item?.node?.title?.english}
                             />
                         ))}
                 </ScrollView>

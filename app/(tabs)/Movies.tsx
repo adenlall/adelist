@@ -3,8 +3,8 @@ import * as React from "react";
 
 import {useState} from "react";
 import { ActivityIndicator, Text, useTheme } from "react-native-paper";
-import GetUser from "../api/Meta/GetUser";
-import { GetGeneralUserData } from "../api/queries/CurrentUserQueries";
+import GetUser from "./../../api/Meta/GetUser";
+import { GetGeneralUserData } from "./../../api/queries/CurrentUserQueries";
 
 export default function Feed() {
 

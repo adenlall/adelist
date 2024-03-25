@@ -3,8 +3,8 @@ import { StyleSheet, View } from 'react-native'
 import { useEffect, useRef, useState } from 'react'
 import { EpisodeCard } from './EpisodeCard'
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons'
-import { GetAnimeEpisodesById } from '../../app/api/queries/DiscoveryQueries'
-import GetAnime from '../../app/api/Meta/GetAnime'
+import { GetAnimeEpisodesById } from '../../api/queries/DiscoveryQueries'
+import GetAnime from '../../api/Meta/GetAnime'
 
 export const Episodes = ({ id }: any) => {
 
