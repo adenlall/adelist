@@ -16,14 +16,15 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.adenlall.Mibu"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/icons/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.peekay.Mibu"
+      "package": "com.adenlall.Mibu"
     },
     "web": {
       "favicon": "./assets/icons/favicon.png",

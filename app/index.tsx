@@ -21,7 +21,7 @@ export default function Index() {
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', padding: 5 }}>
                 <View style={{ width: '90%', height: '90%', gap: 15, padding: 0, backgroundColor: theme.colors.onSecondary, borderWidth: 5, borderColor: theme.colors.secondary, borderRadius: 15 }}>
                     <View style={{ padding: 0 }}>
-                        <Text style={{ textAlign: 'center', padding: 10 }} variant="headlineLarge">Browes and Track your Animes</Text>
+                        <Text style={{ textAlign: 'center', padding: 10, paddingHorizontal:20 }} variant="headlineLarge">Browes and Track your Animes</Text>
                         <View style={{ padding: 10, ...styles.block}}>
                             <View style={{ backgroundColor: theme.colors.secondary, ...styles.item }}></View>
                             <View style={{ backgroundColor: theme.colors.secondary, ...styles.item }}></View>
