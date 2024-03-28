@@ -1,19 +1,19 @@
-import { ScrollView, View, SafeAreaView, StyleSheet } from "react-native";
+import { ScrollView, View, SafeAreaView, StyleSheet, Image } from "react-native";
 import * as React from "react";
 
 import { ActivityIndicator, Button, useTheme, Text } from "react-native-paper";
 import AppBar from "../../components/Interface/AppBar";
-import { useNavigation } from "expo-router";
-import { TrendManga, TrendMovies } from "../../api/queries/BigQueries";
+import { Link, useNavigation } from "expo-router";
+import { CharactersQ } from "../../api/queries/BigQueries";
 import { Fetch } from "../../helpers/Fetch";
 import DiscoveryItem from "../../components/Discovery/DiscoveryItem";
 
-export default function Movies() {
+export default function Characters() {
 
     const navigation = useNavigation();
     navigation.setOptions({ headerShown: false });
 
-    const GraphQLQuery = TrendManga;
+    const GraphQLQuery = CharactersQ;
 
     const theme = useTheme();
 
@@ -38,9 +38,9 @@ export default function Movies() {
         const fetchData = async () => {
             try {
                 if (1) {
-                    const data = await fetchIt(GraphQLQuery, { page: page }, 'trend-manga-' + page, 0) as any;
-                    for (let i = 0; i < data?.data?.Page?.media?.length; i++) {
-                        andata.push(data?.data?.Page?.media[i]);
+                    const data = await fetchIt(GraphQLQuery, { page: page }, 'chars-' + page, 0) as any;
+                    for (let i = 0; i < data?.data?.Page?.characters?.length; i++) {
+                        andata.push(data?.data?.Page?.characters[i]);
                     }
                     setReactData(andata);
                 }
@@ -56,24 +56,19 @@ export default function Movies() {
             <AppBar
                 more={null}
                 search={null}
-                title='Manga'
+                title='Characters'
             />
-            <SafeAreaView style={{ paddingBottom:65, backgroundColor: theme.colors.background }}>
+            <SafeAreaView style={{ paddingBottom: 65, backgroundColor: theme.colors.background }}>
                 <ScrollView contentContainerStyle={styles.container}>
-                    <View style={{ gap: 8, paddingHorizontal: 2 , paddingBottom:5,  ...styles.grid }}>
+                    <View style={{ gap: 8, paddingHorizontal: 2, paddingBottom: 5, ...styles.grid }}>
                         {
                             reactData?.map((item: any, i: number) => (
-                                <DiscoveryItem
-                                    width={90}
-                                    lines={2}
-                                    height={135}
-                                    type={'manga'}
-                                    noMarging={true}
-                                    Id={item?.id}
-                                    key={i}
-                                    SourceImage={item?.coverImage?.extraLarge ?? item?.coverImage?.large ?? item?.coverImage?.meduim}
-                                    Title={item?.title?.romaji ?? item?.title?.english ?? item?.title?.native}
-                                />
+                                <Link href={"/character/" + item?.id} key={i} style={{ justifyContent: 'center', alignContent: 'center', alignItems: 'center', margin: 5 }}>
+                                    <View style={{ justifyContent: 'center', alignContent: 'center', alignItems: 'center' }}>
+                                        <Image style={{ width: 88, height: 88, borderRadius: 100 }} source={item?.image?.meduim ?? item?.image?.large} src={item?.image?.meduim ?? item?.image?.large} />
+                                        <Text numberOfLines={2} style={{ maxWidth: 88, textAlign: 'center', margin: 'auto' }} ellipsizeMode='clip' >{item?.name?.full ?? item?.name?.first ?? item?.name?.userPreferred ?? item?.name?.native}</Text>
+                                    </View>
+                                </Link>
                             ))
                         }
                     </View>
@@ -94,9 +89,9 @@ const styles = StyleSheet.create({
     },
     grid: {
         flexDirection: 'row',
-        justifyContent:'center',
-        alignContent:'center',
-        alignItems:'center',
+        justifyContent: 'center',
+        alignContent: 'center',
+        alignItems: 'center',
         flexWrap: 'wrap',
     }
 });

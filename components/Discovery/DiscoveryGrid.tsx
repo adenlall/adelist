@@ -1,11 +1,14 @@
 import React, {useEffect, useRef, useState} from "react";
 import {ScrollView, View} from "react-native";
 import DiscoveryItem from "./DiscoveryItem";
-import { ActivityIndicator } from "react-native-paper";
+import { ActivityIndicator, useTheme } from "react-native-paper";
 import AnilistDiscoveryGridCall from "../../api/Discovery/DiscoveryAPI";
 
 
 export default function DiscoveryGrid({ GraphQLQuery, queryName }:any) {
+
+    const theme = useTheme();
+
     const { handleApiCall, apiData } = AnilistDiscoveryGridCall(GraphQLQuery, queryName, 3);
     const [isLoading, setIsLoading] = useState(true);
     const hasFetchedData = useRef(false);
@@ -29,7 +32,7 @@ export default function DiscoveryGrid({ GraphQLQuery, queryName }:any) {
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             {isLoading ? (
-                <ActivityIndicator size="large" style={{height:100}} color="#0000ff" />
+                <ActivityIndicator size="large" style={{height:120}} color={theme.colors.onBackground} />
             ) : (
                 <ScrollView horizontal={true} nestedScrollEnabled={true} showsHorizontalScrollIndicator={false}>
                     {apiData && apiData.data && apiData.data.Page && apiData.data.Page.media &&

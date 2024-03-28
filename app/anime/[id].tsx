@@ -1,4 +1,4 @@
-import { ActivityIndicator, MD2Colors, Searchbar, Text, TouchableRipple } from 'react-native-paper'
+import { ActivityIndicator, MD2Colors, Searchbar, Text, TouchableRipple, useTheme } from 'react-native-paper'
 import { useLocalSearchParams, useNavigation, useRouter } from 'expo-router'
 import { useEffect, useRef, useState } from 'react'
 import { ScrollView, StyleSheet, View } from 'react-native'
@@ -16,7 +16,7 @@ export default function Page() {
   const navigation = useNavigation()
   navigation.setOptions({ headerShown: false })
   const { id }: any = useLocalSearchParams()
-
+  const theme = useTheme();
   const GraphQLQuery = GetAnimeById;
 
   const { handleApiCall, apiData } = GetAnime(GraphQLQuery, {
@@ -44,14 +44,14 @@ export default function Page() {
 
   if (isLoading) {
     return(
-      <View style={{flex:1, margin:'auto', justifyContent:'center', alignItems:'center', alignContent:'center'}}>
+      <View style={{ backgroundColor: theme.colors.background, flex:1, margin:'auto', justifyContent:'center', alignItems:'center', alignContent:'center'}}>
         <ActivityIndicator/>
       </View>
     )
   }
 
   return (
-    <ScrollView>
+    <ScrollView style={{ backgroundColor: theme.colors.background }}>
       <AppBar
         more={null}
         search={null}
@@ -74,7 +74,7 @@ export default function Page() {
         <Synopsis data={apiData?.data?.Media?.description} />
           {
             apiData?.data?.Media?.recommendations?.edges?.length?(
-              <View>
+              <View style={{paddingHorizontal:10}}>
                 <Text variant="headlineSmall" style={{textAlign: 'left', marginVertical: 10, marginLeft: 5}}>This Anime Recomendation</Text>
                 <ScrollAnimes data={apiData?.data?.Media?.recommendations?.edges} type={'anime'} />
               </View>      
@@ -87,20 +87,14 @@ export default function Page() {
 const styles = StyleSheet.create({
   poster: {
     zIndex: 2,
-    // flex: 1,
     flexDirection: 'row',
-    // justifyContent:'center',
-    // alignContent: 'center',
-    // alignItems: 'flex-start',
   },
   data: {
     paddingTop: 12,
     flex: 0.95,
   },
   badge: {
-    // flex: 1,
     flexDirection: 'row',
-    // justifyContent:'center',
     alignContent: 'center',
     alignItems: 'flex-start',
     marginVertical: 5,

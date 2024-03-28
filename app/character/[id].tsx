@@ -1,4 +1,4 @@
-import { ActivityIndicator, Text } from 'react-native-paper'
+import { ActivityIndicator, Text, useTheme } from 'react-native-paper'
 import { useLocalSearchParams, useNavigation, useRouter } from 'expo-router'
 import { useEffect, useRef, useState } from 'react'
 import { ScrollView, StyleSheet, View } from 'react-native'
@@ -12,9 +12,11 @@ import ScrollAnimes from '../../components/Interface/ScrollAnimes'
 
 export default function Page() {
 
-  const navigation = useNavigation()
-  navigation.setOptions({ headerShown: false })
-  const { id }: any = useLocalSearchParams()
+  const theme = useTheme();
+
+  const navigation = useNavigation();
+  navigation.setOptions({ headerShown: false });
+  const { id }: any = useLocalSearchParams();
 
   const GraphQLQuery = getCharacterById;
 
@@ -45,14 +47,14 @@ export default function Page() {
 
   if (isLoading) {
     return (
-      <View style={{ flex: 1, margin: 'auto', justifyContent: 'center', alignItems: 'center', alignContent: 'center' }}>
+      <View style={{ flex: 1, backgroundColor: theme.colors.background , margin: 'auto', justifyContent: 'center', alignItems: 'center', alignContent: 'center' }}>
         <ActivityIndicator />
       </View>
     )
   }
 
   return (
-    <ScrollView>
+    <ScrollView style={{ backgroundColor: theme.colors.background }}>
       <AppBar
         more={null}
         search={null}
@@ -64,9 +66,9 @@ export default function Page() {
       <ChacacterHead data={apiData?.data?.Character} />
       {
         apiData?.data?.Character?.media?.edges ? (
-          <View>
+          <View style={{paddingHorizontal:10}}>
             <Text variant="headlineSmall" style={{ textAlign: 'left', marginVertical: 10, marginLeft: 5 }}>Character Apparences</Text>
-            <ScrollAnimes data={apiData?.data?.Character?.media?.edges} type={'anime'} />
+            <ScrollAnimes data={apiData?.data?.Character?.media?.edges} />
           </View>
         ) : ''
       }

@@ -1,4 +1,4 @@
-import { ActivityIndicator, Button, Card, Text } from 'react-native-paper'
+import { ActivityIndicator, Button, Card, Text, useTheme } from 'react-native-paper'
 import { StyleSheet, View } from 'react-native'
 import { useEffect, useRef, useState } from 'react'
 import { EpisodeCard } from './EpisodeCard'
@@ -7,6 +7,8 @@ import { GetAnimeEpisodesById } from '../../api/queries/DiscoveryQueries'
 import GetAnime from '../../api/Meta/GetAnime'
 
 export const Episodes = ({ id }: any) => {
+
+    const theme = useTheme();
 
     const GraphQLQuery = GetAnimeEpisodesById;
 
@@ -54,7 +56,7 @@ export const Episodes = ({ id }: any) => {
                         <Card onPress={()=>{}} style={{width:'90%'}}>
                             <Card.Content>
                                 <View style={{justifyContent:'center', alignItems:'center'}}>
-                                <MaterialCommunityIcons size={30} name='crosshairs' />
+                                <MaterialCommunityIcons color={theme.colors.onBackground} size={30} name='crosshairs' />
                                 <Text variant='titleSmall' style={{textAlign:'center', marginTop:10}}>
                                     There no Episodes for this anime
                                 </Text>

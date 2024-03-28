@@ -8,7 +8,7 @@ export const EpisodeCard = ({ thumbnail, number, url, type }: any) => (
       <Link href={url}>
           <View
             style={{
-              backgroundColor: useTheme().colors.backdrop,
+              backgroundColor: useTheme().colors.secondary,
               borderRadius: useTheme().roundness * 2,
               ...styles.card,
             }}
@@ -24,7 +24,7 @@ export const EpisodeCard = ({ thumbnail, number, url, type }: any) => (
               resizeMode='cover'
             >
               <LinearGradient
-                colors={[useTheme().colors.primary, useTheme().colors.primary]}
+                colors={[useTheme().colors.secondary, useTheme().colors.secondary]}
                 style={{
                   zIndex: 1,
                   opacity: 0.5,
@@ -34,7 +34,7 @@ export const EpisodeCard = ({ thumbnail, number, url, type }: any) => (
                   borderRadius:useTheme().roundness*2
                 }}
               />
-              <Text variant='titleLarge' style={{ zIndex:2, textAlign:'center', fontWeight: '800', margin: 'auto', color:useTheme().colors.onPrimary }}>
+              <Text variant='titleLarge' style={{ zIndex:2, textAlign:'center', fontWeight: '800', margin: 'auto', color:useTheme().colors.onSecondary }}>
                 {number}
               </Text>
             </ImageBackground>

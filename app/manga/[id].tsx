@@ -1,4 +1,4 @@
-import { ActivityIndicator, MD2Colors, Searchbar, Text, TouchableRipple } from 'react-native-paper'
+import { ActivityIndicator, MD2Colors, Searchbar, Text, TouchableRipple, useTheme } from 'react-native-paper'
 import { useLocalSearchParams, useNavigation, useRouter } from 'expo-router'
 import { useEffect, useRef, useState } from 'react'
 import { ScrollView, StyleSheet, View } from 'react-native'
@@ -15,6 +15,8 @@ export default function Page() {
   const navigation = useNavigation()
   navigation.setOptions({ headerShown: false })
   const { id }: any = useLocalSearchParams()
+
+  const theme = useTheme();
 
   const GraphQLQuery = GetMangaById;
 
@@ -42,14 +44,14 @@ export default function Page() {
 
   if (isLoading) {
     return(
-      <View style={{flex:1, margin:'auto', justifyContent:'center', alignItems:'center', alignContent:'center'}}>
+      <View style={{flex:1, margin:'auto', backgroundColor: theme.colors.background , justifyContent:'center', alignItems:'center', alignContent:'center'}}>
         <ActivityIndicator/>
       </View>
     )
   }
 
   return (
-    <ScrollView>
+    <ScrollView style={{ backgroundColor: theme.colors.background }}>
       <AppBar
         more={null}
         search={null}

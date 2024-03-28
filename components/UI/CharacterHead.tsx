@@ -6,7 +6,6 @@ import Badge from './Badge'
 import Markdown from 'react-native-markdown-display'
 
 export default function ChacacterHead({ data }: any) {
-    const theme = useTheme();
     return (
         <>
             {/* <TouchableRipple onPress={() => console.log('Pressed')} rippleColor="rgba(0, 0, 0, .32)"> */}
@@ -35,27 +34,30 @@ export default function ChacacterHead({ data }: any) {
                     {
                         data?.age ? (
                             <Chip icon={'calendar-range'} style={{ margin: 2 }} onPress={() => { }}>
-                                age : 10
+                                age : {data?.age}
                             </Chip>
                         ) : ''
                     }{
                         data?.gender ? (
                             <Chip icon={'gender-male-female'} style={{ margin: 2 }} onPress={() => { }}>
-                                Male
+                                {data?.gender}
                             </Chip>
                         ) : ''
                     }{
                         data?.favourites ? (
                             <Chip icon={'heart'} style={{ margin: 2 }} onPress={() => { }}>
-                                10293
+                                {data?.favourites}
                             </Chip>
                         ) : ''
                     }
                 </View>
-                <View style={{ padding: 10 }}>
+                <View style={{ padding: 15 }}>
                     {
                         data?.description ? (
-                            <Markdown>
+                            <Markdown style={{
+                                body: { color: useTheme().colors.onBackground },
+                                heading1: { color: useTheme().colors.onBackground }
+                            }}>
                                 {data?.description}
                             </Markdown>
                         ) : ''
