@@ -4,6 +4,15 @@
 ![header](/assets/screens/1.png)
 
 Cross platform mobile app for Anilist built with React Native and Expo using expo SDK 50
+## Features :
+ - Latest Expo SDK 50
+ - Material Design 3 ( react-native-paper v5 )
+ - Expo Router
+ - Axios
+ - Caching all HTTP calls
+ - Anime & Manga rich details
+ - Character details
+ - ...
 
 ![header](/assets/screens/2.png)
 ![header](/assets/screens/3.png)
