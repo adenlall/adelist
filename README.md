@@ -1,3 +1,5 @@
+<img src="/assets/images/logo.png" alt="logo" width="200"/>
+
 # Adenlist - Anilist IOS & Android client - Material Design 3
 ### Expo SDK 50
 
@@ -23,3 +25,5 @@ Cross platform mobile app for Anilist built with React Native and Expo using exp
 1. Clone repo
 2. Run `npm install`
 3. run `npm web` or `npm android`
+
+![logo](/assets/images/logos.svg)
