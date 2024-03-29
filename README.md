@@ -1,7 +1,9 @@
 <img src="/assets/images/logo.png" alt="logo" width="200"/>
 
-# Adenlist - Anilist IOS & Android client - Material Design 3
-### Expo SDK 50
+# Adenlist - Anilist IOS & Android client
+
+
+### built with Expo SDK 50 & Material Design 3
 
 ![header](/assets/screens/1.png)
 
