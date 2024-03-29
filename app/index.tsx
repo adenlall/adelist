@@ -6,6 +6,7 @@ import { Storage } from "../helpers/Storage";
 import { Button, Text, useTheme } from "react-native-paper";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 import { LinearGradient } from "expo-linear-gradient";
+import { StatusBar } from "expo-status-bar";
 
 
 export default function Index() {
@@ -15,6 +16,7 @@ export default function Index() {
 
     return (
         <View style={{ flex: 1, backgroundColor: theme.colors.background }}>
+            <StatusBar backgroundColor={theme.colors.primary} animated={true} />
             {/* <StatusBar style="light" /> */}
             {/* <ImageBackground source={require('../assets/images/storm.jpg')} style={{ flex: 1 }} blurRadius={5}> */}
             {/* Add the centered box here */}

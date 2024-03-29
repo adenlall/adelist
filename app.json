@@ -1,33 +1,33 @@
 {
   "expo": {
     "name": "adeList",
-    "slug": "adelist-md3",
-    "version": "1.0.0",
+    "slug": "adelist",
+    "version": "1.0.1",
     "orientation": "portrait",
-    "icon": "./assets/icons/icon.png",
+    "icon": "./assets/images/logo.png",
     "userInterfaceStyle": "automatic",
-    "scheme": "adelist-md3",
+    "scheme": "adelist",
     "splash": {
-      "image": "./assets/icons/splash.png",
+      "image": "./assets/images/logo.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#280b0b"
     },
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.adenlall.Mibu"
+      "bundleIdentifier": "com.adenlall.adelist"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/icons/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./assets/images/logo.png",
+        "backgroundColor": "#280b0b"
       },
-      "package": "com.adenlall.Mibu"
+      "package": "com.adenlall.adelist"
     },
     "web": {
-      "favicon": "./assets/icons/favicon.png",
+      "favicon": "./assets/images/logo.png",
       "bundler": "metro"
     },
     "plugins": [
