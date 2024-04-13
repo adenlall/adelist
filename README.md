@@ -40,3 +40,6 @@ All contributions are welcome, from code to documentation to graphics to design 
 
 You can come hang out with our awesome community, request new features, and report any bugs or issues at our Discord server too. 📣
 
+## Other projects
+
+ - [hooanime stream anime online](https://ar.hooanime.com)
